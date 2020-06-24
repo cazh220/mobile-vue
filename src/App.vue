@@ -1,19 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+      <van-search v-model="value" shape="round" background="#4fc08d" placeholder="请输入搜索关键词" />
+    </div>
+    <router-view />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Vue from "vue";
+import { Search } from "vant";
 
+Vue.use(Search);
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      value: ''
+    };
   }
-}
+};
 </script>
 
 <style>
@@ -23,6 +28,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: auto;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
